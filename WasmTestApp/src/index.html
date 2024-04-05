@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wasm Api ElectronJs Test</title>
+  </head>
+  <body>
+      <label>URL  : </label>
+      <input id="urlText" type="text" size="80">
+      <button id="textureBtn" type="button">Change Texture</button>
+      <br><br>
+
+      <label>Longitude :</label>
+      <input id="Lon" type="text" size="10">
+      <label>Latitude :</label>
+      <input id="Lat" type="text" size="10">
+      <label>Load :</label>
+      <input id="Load" type="text" size="10">
+      <button id="setUrl" type="button">Change Texture</button>
+
+      <br><br>
+      <canvas id="glcanvas"></canvas>
+      <br><br>
+      <button id="jsPerTest" type="button" style="width:100px">Test Performance (JS)</button>
+      <button id="wasmPerTest" type="button" style="width:100px">Test Performance (WASM)</button>
+      <br><br>
+      <label id="testResult"></label>
+      <br><br>
+      <button id="doCallback" type="button" style="width:100px">Test Callback</button>
+      <br><br>
+      <label id="callbackResult"></label>
+
+      <br><br>
+      <label id="tests"></label>
+
+      <script src="./renderer.js"></script>
+  </body>
+</html>

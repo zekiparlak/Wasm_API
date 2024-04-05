@@ -1,0 +1,37 @@
+interface Api {
+	void Api(VirApi virApi);
+	[Const] DOMString TestMessage([Const] DOMString msg);
+	long TestFloatArray(long len_arr);
+	void TestCallback(Callback cb, long arraybuffer, long size_arr);
+	double Test_WASM_Performance();
+	void TextureRequest([Const] DOMString _url);
+	void ChangeTexture_OnWheel(long x, long y, long load, long halfWidth, long halfHeight);
+	[Const] DOMString LatLonToTileUrl(double lat, double lon, long zoom);
+};
+
+interface Point {
+	attribute double X;
+	attribute double Y;
+	void Point(double X, double Y);
+};
+
+[NoDelete]
+interface iVirApi {
+};
+
+[JSImplementation = "iVirApi"]
+interface VirApi {
+	void VirApi();
+	void InitWebGL();
+	void DownloadAndMakeTexture([Const] DOMString _url);
+};
+
+[NoDelete]
+interface iCallback {
+};
+
+[JSImplementation = "iCallback"]
+interface Callback {
+	void Callback();
+	void DoCallback(Point minP, Point maxP);
+};
