@@ -4,7 +4,7 @@ Api::Api(iVirApi* virApi) {
     FLoad = 0;
     FTile_Map_url = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/";
 
-	FVirApi = virApi;
+    FVirApi = virApi;
     FVirApi->InitWebGL();
 }
 
