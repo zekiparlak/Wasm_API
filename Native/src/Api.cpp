@@ -4,7 +4,7 @@ Api::Api(iVirApi* virApi) {
     FLoad = 0;
     FTile_Map_url = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/";
 
-    FVirApi = virApi;
+	FVirApi = virApi;
     FVirApi->InitWebGL();
 }
 
@@ -13,7 +13,7 @@ Api::~Api() {
 }
 
 const char* Api::TestMessage(const char* msg) {
-    message = "Hello From Sample Api, " + std::string(msg);
+    std::string message = "Hello From Sample Api, " + std::string(msg);
     return message.c_str();
 }
 
@@ -45,23 +45,13 @@ void Api::TestCallback(iCallback* cb, uintptr_t arraybuffer, int len_arr) {
     cb->DoCallback(minp, maxp);
 }
 
-class Point2d {
-public:
-    double x;
-    double y;
-    Point2d(double _x, double _y) {
-        x = _x;
-        y = _y;
-    }
-};
-
 double Api::Test_WASM_Performance() {
     int n = 10000000;
     double coeffs = 0.005;
     double sum = 0;
     for (int i = 0; i < n; i++) {
-        Point2d* p = new Point2d((i % 100) * 5, (i % 100) * 3);
-        sum += (i + coeffs * p->x - i + coeffs * p->y);
+        Point* p = new Point((i % 100) * 5, (i % 100) * 3);
+        sum += (i + coeffs * p->X - i + coeffs * p->Y);
         delete p;
     }
     return sum;
