@@ -7,13 +7,6 @@ var virapiManager;
 var url = "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/0/0/0";
 var load = 0;
 
-class Point2d {
-    constructor(_x, _y) {
-        this.x = _x;
-        this.y = _y;
-    }
-}
-
 function RandomRange(minR, maxR) {
     return Math.floor(Math.random() * (maxR - minR)) + minR;
 }
@@ -31,13 +24,20 @@ function onSetUrl() {
     changeTexture();
 }
 
+class Point {
+    constructor(_x, _y) {
+        this.X = _x;
+        this.Y = _y;
+    }
+}
+
 function jsPerformanceTest() {
     var n = 10000000;
     var coeffs = 0.005;
     var sum = 0;
     for (var i = 0; i < n; i++) {
-        var p = new Point2d((i % 100) * 5, (i % 100) * 3);
-        sum += (i + coeffs * p.x - i + coeffs * p.y);;
+        var p = new Point((i % 100) * 5, (i % 100) * 3);
+        sum += (i + coeffs * p.X - i + coeffs * p.Y);;
         p = null;
     }
     return sum;
