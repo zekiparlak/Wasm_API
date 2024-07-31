@@ -1,8 +1,8 @@
 # Wasm_API
-Simple WebAssembly Api  on ElectronJs
+Simple WebAssembly Test Api on ElectronJs
 --------
 
-requirements
+Min Requirements
 --------
 
 Emscripten 3.1.55
